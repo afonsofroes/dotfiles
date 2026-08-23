@@ -71,3 +71,6 @@ export EDITOR=code
 # Set ipdb as the default Python debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
 export BROWSER='"/mnt/c/Program Files/Mozilla Firefox/firefox.exe"'
+
+# Added by uv installer; guarded so shells without uv still start cleanly.
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env" || :

@@ -1,6 +1,6 @@
 {
   "includeCoAuthoredBy": false,
-  "model": "opus",
+  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -44,7 +44,9 @@
     "ponytail@ponytail": true,
     "langfuse@claude-plugins-official": true,
     "shopify-ai-toolkit@claude-plugins-official": true,
-    "liquid-skills@claude-plugins-official": true
+    "liquid-skills@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "context-mode": {
@@ -62,5 +64,37 @@
   },
   "pluginConfigs": {},
   "tui": "fullscreen",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "autoMode": {
+    "soft_deny": [
+      "$defaults",
+      "Bash(railway:apply:*) in UpSpeech/upspeech — Railway deploy/apply routinely touches staging/prod per plans/143-promote-staging-to-prod.md"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: UpSpeech (GitHub org UpSpeech; repo github.com:UpSpeech/upspeech.git)",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: Private (UpSpeech/upspeech — confirmed via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured — .env, .env.local, .env.*.local, .env.docker are gitignored; treat as local secrets",
+      "**Default / protected branches**: Default branch main; no classic protected branches listed; rulesets not queryable here — treat main as protected pending confirmation",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Source control**: The trusted repo (UpSpeech/upspeech) and its origin remote only (no additional orgs configured)",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: .env, .env.local, .env.*.local, .env.docker, .env.docker.example (local secrets, not for commit); decisions/2026-05-19-account-deletion-recording-retention.md and decisions/2026-07-17-gcs-key-rotation-prod-staging-split.md (contain sensitive operational/retention decisions — share only with audiences cleared at the named+specifics bar); patient/therapist personal and health-adjacent data handled by this platform is sensitive regardless of location",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries prod or production as a whole word or segment (e.g. matches plans/143-promote-staging-to-prod.md context, railway prod environment, GCS prod key referenced in decisions/2026-07-17-gcs-key-rotation-prod-staging-split.md)",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic (Railway prod, staging-to-prod promotion per plans/143-promote-staging-to-prod.md)",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries prod or production as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (UpSpeech multi-service SaaS platform: Rails backend, React frontend, FastAPI AI service)",
+      "**Trusted repo**: /Users/afonso/code/afonsofroes/upspeech (UpSpeech/upspeech, private) and its origin remote — confidential material is fine here; content ported from outside this repo/session is not this repo's own work",
+      "**Org-specific CLIs**: None configured — uv used routinely in this project (Python toolchain, not org-specific)",
+      "routine under /Users/afonso/code/afonsofroes/upspeech/ prefix"
+    ]
+  }
 }
